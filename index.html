@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="center">
+    <div class="card">
+        <h2 id="welcome"></h2>
+        <img id="profile" src="default.png" class="pfp" alt="Profile Picture">
+
+        <div class="ring-container">
+            <svg class="ring" width="180" height="180" viewBox="0 0 180 180">
+                <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#ff6b8a"/>
+                        <stop offset="100%" style="stop-color:#ff3e6c"/>
+                    </linearGradient>
+                </defs>
+                <circle class="bg" cx="90" cy="90" r="60"/>
+                <circle class="fg" cx="90" cy="90" r="60"/>
+            </svg>
+            <h1 id="scoreText">0 / 10</h1>
+        </div>
+
+        <p id="messageDisplay" class="admin-message" style="display:none;"></p>
+
+        <div id="adminPanel" style="display:none;">
+            <button onclick="addScore()">+1</button>
+            <button onclick="subScore()">-1</button>
+            <br>
+            <label for="pfpUpload" class="upload-btn">Upload Profile Picture</label>
+            <input type="file" id="pfpUpload" accept="image/*" onchange="uploadPfp()">
+            
+            <div class="message-section">
+                <input type="text" id="msgInput" placeholder="Send a message to viewer..." maxlength="100">
+                <button onclick="sendMessage()" class="send-btn">Send</button>
+            </div>
+        </div>
+
+        <p id="notAllowed"></p>
+        
+        <button class="logout-btn" id="logoutBtn" style="display:none;" onclick="logout()">Logout</button>
+    </div>
+
+<script src="app.js"></script>
+<script>window.onload = loadDashboard;</script>
+</body>
+</html>
